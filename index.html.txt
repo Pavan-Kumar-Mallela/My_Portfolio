@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Professional Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+        .contact-info, .about, .education, .skills, .projects {
+            margin-bottom: 20px;
+        }
+        .contact-info ul, .skills ul, .projects ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info ul li, .skills ul li, .projects ul li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007BFF;
+            color: white;
+            margin-top: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Name</h1>
+    <p>B.Tech in Computer Science & Engineering, Specialised in AI & ML</p>
+</header>
+
+<div class="container">
+
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <ul>
+            <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+            <li>Phone: +123-456-7890</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/pavan-kumar-mallela-55185130b" target="_blank">linkedin.com/in/pavan-kumar-mallela-55185130b</a></li>
+            <li>GitHub: <a href="https://github.com/Pavan-Kumar-Mallela" target="_blank">github.com/Pavan-Kumar-Mallela</a></li>
+        </ul>
+    </section>
+
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            I am a Third year B.Tech student in Computer Science & Engineering with a specialization in Artificial Intelligence and Machine Learning. Passionate about leveraging data-driven solutions to solve real-world problems. Seeking an opportunity to apply my knowledge and skills in a challenging work environment.
+        </p>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <strong>B.Tech in Computer Science & Engineering</strong><br>
+                Raghu Institute Of Technology, Visakhapatnam, India<br>
+                Expected Graduation: [April], [2025]
+            </li>
+        </ul>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming Languages: Python, C++, Java</li>
+            <li>AI & ML: TensorFlow, OpenCV, Scikit-Learn</li>
+            <li>Web Development: HTML, CSS, JavaScript</li>
+            <li>Tools: Git, Jupyter Notebooks, VS Code</li>
+        </ul>
+    </section>
+
+    <section class="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                <strong>Project Name</strong> - Brief description of the project and its significance. <a href="https://github.com/Pavan-Kumar-Mallela/projectname" target="_blank">[GitHub]</a>
+            </li>
+            <li>
+                <strong>Project Name</strong> - Brief description of the project and its significance. <a href="https://github.com/Pavan-Kumar-Mallela/projectname" target="_blank">[GitHub]</a>
+            </li>
+            <!-- Will Add more projects as needed -->
+        </ul>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; [2024] Your Name. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
