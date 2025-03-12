@@ -3,124 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan Kumar Mallela - Professional Portfolio</title>
+    <title>Student Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Basic Reset */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        /* Variables */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        /* Page Styling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
         header {
-            background-color: #007BFF;
+            background-color: var(--secondary-color);
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background: white;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        h1, h2, h3 {
-            margin-bottom: 10px;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
         }
-        .contact-info, .about, .education, .skills, .projects {
-            margin-bottom: 20px;
-        }
-        .contact-info ul, .skills ul, .projects ul {
+
+        .nav-links {
+            display: flex;
             list-style: none;
-            padding: 0;
         }
-        .contact-info ul li, .skills ul li, .projects ul li {
-            margin-bottom: 10px;
+
+        .nav-links li {
+            margin-left: 1.5rem;
         }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #007BFF;
+
+        .nav-links a {
             color: white;
-            margin-top: 20px;
-        }
-        a {
-            color: #007BFF;
             text-decoration: none;
+            transition: color 0.3s;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 4rem;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color:  #2980b9;
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--light-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: var(--primary-color);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img, .about-text {
+                flex: 1;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span>☰</span>
+            </div>
+        </nav>
+    </header>
 
-<header>
-    <h1>Pavan Kumar Mallela</h1>
-    <p>B.Tech in Computer Science & Engineering, Specialised in AI & ML</p>
-</header>
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Pavan Kumar Mallela</span></h1>
+                <p>Computer Science Student & Web Developer</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </section>
 
-<div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/api/placeholder/300/300" alt="Profile Picture">
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm a final-year Computer Science student at Raghu Institute of Technology with a passion for web development and software engineering.</p>
+                    <p>I enjoy creating responsive and user-friendly websites using HTML, CSS, and JavaScript. My goal is to build applications that not only look great but also solve real-world problems.</p>
+                    <p>When I'm not coding, you can find me cookin, reading blogs, or participating in contests to expand my skills.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="contact-info">
-        <h2>Contact Information</h2>
-        <ul>
-            <li>Email: <a href="mailto:pavankumarmallela0211@gmail.com">pavankumarmallela0211@gmail.com</a></li>
-            <li>Phone: +91 9014164923</li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/pavan-kumar-mallela-55185130b" target="_blank">linkedin.com/in/pavan-kumar-mallela-55185130b</a></li>
-            <li>GitHub: <a href="https://github.com/Pavan-Kumar-Mallela" target="_blank">github.com/Pavan-Kumar-Mallela</a></li>
-        </ul>
-    </section>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, accessibility, and best practices</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS3</h3>
+                    <p>Responsive design, animations, and Flexbox/Grid</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>DOM manipulation, ES6+, and basic frameworks</p>
+                </div>
+                <div class="skill-card">
+                    <h3>React</h3>
+                    <p>Component-based architecture and state management</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>Data structures, algorithms, and basic automation</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Git</h3>
+                    <p>Version control, collaboration, and GitHub workflow</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="about">
-        <h2>About Me</h2>
-        <p>
-            I am a Third year B.Tech student in Computer Science & Engineering with a specialization in Artificial Intelligence and Machine Learning. Passionate about leveraging data-driven solutions to solve real-world problems. Seeking an opportunity to apply my knowledge and skills in a challenging work environment.
-        </p>
-    </section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"></div>
+                    <div class="project-info">
+                        <h3>Weather App</h3>
+                        <p>A responsive weather application that fetches real-time data using a public API.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"></div>
+                    <div class="project-info">
+                        <h3>Task Manager</h3>
+                        <p>A simple to-do list application with local storage functionality.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"></div>
+                    <div class="project-info">
+                        <h3>University Club Website</h3>
+                        <p>A website redesign for the university's programming club.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="education">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <strong>B.Tech in Computer Science & Engineering</strong><br>
-                Raghu Institute Of Technology, Visakhapatnam, India<br>
-                Expected Graduation: [April], [2025]
-            </li>
-        </ul>
-    </section>
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
 
-    <section class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming Languages: Python, C++, Java</li>
-            <li>AI & ML: TensorFlow, OpenCV, Scikit-Learn</li>
-            <li>Web Development: HTML, CSS, JavaScript</li>
-            <li>Tools: Git, Jupyter Notebooks, VS Code</li>
-        </ul>
-    </section>
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Twitter</a>
+        </div>
+        <p>&copy; 2025 Pavan kumar Mallela. All rights reserved.</p>
+    </footer>
 
-    <section class="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>
-                <strong>Project Name</strong> - Brief description of the project and its significance. <a href="https://github.com/Pavan-Kumar-Mallela/projectname" target="_blank">[GitHub]</a>
-            </li>
-            <li>
-                <strong>Project Name</strong> - Brief description of the project and its significance. <a href="https://github.com/Pavan-Kumar-Mallela/projectname" target="_blank">[GitHub]</a>
-            </li>
-            <!-- Will Add more projects as needed -->
-        </ul>
-    </section>
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-</div>
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-<footer>
-    <p>&copy; [2024] Mallela Pavan Kumar. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+        // Smooth
